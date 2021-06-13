@@ -1,0 +1,72 @@
+<!--<ul class="nav nav-tabs myTabs ">-->
+<!--  <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="/principal/dashboard" data-toggle="tab">Dashboard</a></li>-->
+<!--  <li class="nav-item"><a class="nav-link" routerLink="/principal/devices" data-toggle="tab">Información de dispositivos</a></li>-->
+<!--  <li class="nav-item"><a class="nav-link" routerLink="/principal/types" data-toggle="tab">Tipos de dispositivos</a></li>-->
+<!--  <li class="nav-item"><a class="nav-link" routerLink="/principal/tiposplanilla" data-toggle="tab">Tipos de Planilla</a></li>-->
+<!--  <li class="nav-item"><a class="nav-link" routerLink="/principal/shop" data-toggle="tab">Tienda en línea</a></li>-->
+<!--</ul>-->
+
+<div class="navbar-store sticky-top">
+  <nav class="navbar navbar-expand-lg mr-auto navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/store">GymTEC: Administración</a>
+      <button class="navbar-toggler" type="button"   (click)="mainMenuClicked=!mainMenuClicked" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="mainMenuClicked">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  [class.active]="router.url.includes('/principal/dashboard')" routerLink="/principal/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/sucursales')" routerLink="/principal/sucursales">Sucursales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/spas')" routerLink="/principal/spas">Spas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  [class.active]="router.url.includes('/principal/servicios')" routerLink="/principal/servicios">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  [class.active]="router.url.includes('/principal/tiposequipo')" routerLink="/principal/tiposequipo">Tipos de equipo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  [class.active]="router.url.includes('/principal/inventario')" routerLink="/principal/inventario">Inventario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"  [class.active]="router.url.includes('/principal/productos')" routerLink="/principal/productos">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/tiposplanilla')" routerLink="/principal/tiposplanilla">Tipos de Planilla</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/empleados')" routerLink="/principal/empleados">Empleados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/puestos')" routerLink="/principal/puestos">Puestos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/generacionplanilla')" routerLink="/principal/generacionplanilla">Generación de Planilla</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/shop')" routerLink="/principal/shop">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/calendario')" routerLink="/principal/calendario">Calendario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [class.active]="router.url.includes('/principal/copiarsucursal')" routerLink="/principal/copiarsucursal">Copiar Gimnasio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer" (click)="exit()">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <router-outlet aria-current="page"></router-outlet>
+</div>
+

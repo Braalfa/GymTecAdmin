@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div>
+        <h3 class="text-secondary"> Dashboard </h3>
+    </div>
+    
+
+    <div class="row justify-content-evenly">
+        <div class="col">
+            <div class="container-lg border border-success rounded-pill">
+                <h2>{{asociatedDevices}}</h2>
+                <div class="row justify-content-evenly">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-8">
+                        <label class="col-form-label text-muted text-primary"> Cantidad de dispositivos asociados</label>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                </div>
+            </div>
+            <div class="container-lg border border-success rounded-pill">
+                <h2>{{averageDevicesPerUser}}</h2>
+                <div class="row justify-content-evenly">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-8">
+                        <label class="col-form-label text-muted text-primary"> Cantidad promedio de dispositivos por usuario</label>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">    
+            <h4 style="margin-top: 50px;" class="text-secondary"> Cantidad de dispositivos por región </h4>
+            <div class="col-md">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="margin-left: 350px" colspan="2">Región</th>
+                            <th style="margin-left: 350px" rowspan="2">Cantidad de dispositivos</th>
+                        </tr>
+                        <tr>
+                            <td>País</td>
+                            <td>Continente</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let region of devicesPerRegion">
+                            <th scope="row">{{region.pais}}</th>
+                            <td>{{region.continente}}</td>
+                            <span style="margin-left: 100px" class="badge badge-pill badge-info">{{region.cantidad}}</span>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div> 
+    </div>
+
+    <div class="row justify-content-evenly">
+        <h4 style="margin-top: 50px;" class="text-secondary"> Listado de dispositivos </h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Número de serie</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Consumo (W)</th>
+                    <th scope="col">Asociado</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Propiertario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let device of listedDevices">
+                    <th scope="row">{{device.numeroserie}}</th>
+                    <td>{{device.nombretipodispositivo}}</td>
+                    <td>{{device.marca}}</td>
+                    <td>{{device.consumoelectrico}}</td>
+                    <td>
+                        <span *ngIf="device.correoelectronico" class="badge badge-pill badge-success">Sí</span>
+                        <span *ngIf="!device.correoelectronico" class="badge badge-pill badge-danger">No</span>
+                    </td>
+                    <td>{{device.correoelectronico}}</td>
+                    <td>{{device.primernombre}} {{device.segundonombre}} {{device.primerapellido}} {{device.segundoapellido}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+</div>

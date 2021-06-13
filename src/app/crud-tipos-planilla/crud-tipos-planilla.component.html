@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row justify-content-evenly ml-lg-5 mr-lg-5">
+    <div class="col-lg-8 col-md-12">
+      <div class="container box border">
+        <div>
+          <h3 class="text-secondary"> Tipos de Planillas </h3>
+        </div>
+
+        <div class="orders border-top pt-2">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action"
+                *ngFor="let type of tiposPlanilla; index as i"
+                (click)="toEditType(type)">
+              <div class="">
+                <div class="row justify-content-evenly order shadow p-3 mb-5 bg-body rounded">
+                  <div class="col-md-4">
+                    <h1><span class="badge badge-pill badge-success">{{i+1}}</span></h1>
+                  </div>
+                  <div class="col-8">
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Identificador:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{type.Id}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Pago por:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{type.Descripcion}} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-12">
+      <form #form class="container-fluid inputBox border">
+        <div>
+          <h3 class="text-secondary text-center mb-4"> Agregar o Editar un Tipo de Planilla </h3>
+        </div>
+        <div class="form-group">
+          <select required id="descripcion" name="descripcion" class="form-control"
+                  [(ngModel)]="selectedPlanilla.Descripcion" #descripcion="ngModel"  [class.is-invalid]="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+            <option value="" selected hidden>Descripción Planilla</option>
+            <option *ngFor="let descripcion of descripciones" [value]="descripcion">
+              {{descripcion}}
+            </option>
+          </select>
+        </div>
+<!--        <div class="form-group">-->
+<!--          <input required type="text" pattern='[0-9]*'  name="Identificador" [(ngModel)]="selectedPlanilla.identificador" placeholder="Identificador"-->
+<!--                 class="form-control" #Identificador="ngModel" [class.is-invalid]="Identificador.invalid && (Identificador.dirty || Identificador.touched)">-->
+<!--        </div>-->
+        <div class="row">
+          <div class="mb-2 text-center col-12">
+          <button [disabled]="!form.checkValidity()" (click)="addOrEditType(form)" type="button"
+                  class="btn btn-dark">
+            Confirmar
+          </button>
+          </div>
+          <div class="col-12 mb-2 text-center">
+          <button type="button" *ngIf="this.editing" class="btn btn-danger"
+                  (click)="deleteType(form)">
+            Eliminar
+          </button>
+          </div>
+          <div class="col-12 mb-2 text-center">
+          <button type="button" *ngIf="this.editing" class="btn btn-light"
+                  (click)="cancel(form)">
+            Cancelar
+          </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <app-fail-dialog [header]="errorMsgHeader"
+                   [message]="errorMsg"></app-fail-dialog>
+
+</div>

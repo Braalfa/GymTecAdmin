@@ -1,0 +1,26 @@
+
+.container-lg{
+    display: grid;
+    place-items: center;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+
+#divChart{
+    display: block;
+    width: 400px;
+    height: 400px;
+}
+
+.table{
+    margin-top: 15px;
+}
+
+.td{
+    margin-left: 20px;
+}
+
+.th{
+    margin-left: 20px;
+}

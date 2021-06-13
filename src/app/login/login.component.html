@@ -1,0 +1,70 @@
+<!-- Pagina de inicio de sesion -->
+
+<div class="bg-image">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <!-- Cuadro principal -->
+          <div id="block" class="shadow-lg p-3 mb-5 bg-body rounded border">
+
+            <h3 class="text-secondary"> Bienvenido al Sistema Administrador SmartHomeTEC </h3>
+
+            <!-- Form de Inicio de Sesion -->
+            <form id = "form" (ngSubmit)="onSubmit()">
+
+              <div class="row">
+                <div class="col-5">
+                  <label for="inputLoggin" class="col-form-label text-muted text-secondary">Usuario</label>
+                </div>
+                <div class="col-7">
+                  <input ngModel type="text" id="inputLoggin" class="form-control" [(ngModel)]="userModel.id" [ngModelOptions]="{standalone: true}">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-5">
+                  <label for="inputPassword" class="col-form-label text-muted text-secondary">Contraseña</label>
+                </div>
+                <div class="col-7">
+                  <input ngModel type="password" id="inputPassword" class="form-control" [(ngModel)]="userModel.contra" [ngModelOptions]="{standalone: true}">
+                </div>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-5">
+                  <label for="inputPassword" class="col-form-label text-muted text-secondary">Tipo de usuario</label>
+                </div>
+                <div class="col-7">
+                  <select name="tipo-usuario" id="tipo-usuario">
+                    <option value="opcion1">Instructor</option>
+                    <option value="opcion2">Dependiente de tienda</option>
+                    <option value="opcion3">Dependiente de spa</option>
+                  </select>
+                </div>
+              </div>
+  
+
+              <ng-template [ngIf]="loginError">
+                <div class="alert alert-warning alert-dismissible fade show" style="padding-bottom: 20px; margin-bottom: -5px">
+                  <button type="button" class="close" (click)="closeError()">&times;</button>
+                  <strong>Error!</strong> No se pudo iniciar sesión.
+                </div>
+              </ng-template>
+
+              
+
+              <div class="row">
+                <input id="send-btn" type="submit" class="btn btn-secondary" value="Iniciar Sesión">
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+  </div>

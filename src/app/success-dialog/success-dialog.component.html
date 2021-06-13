@@ -1,0 +1,17 @@
+<ng-template #succesDialog>
+  <div class="modal-body">
+      <div class="border-bottom text-center pb-2">
+      <button type="button" class="float-right close pull-right" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5 class="text-success">{{header}}</h5>
+    </div>
+    <div class="ml-4 mr-4 mt-2 text-center">
+      <h6>{{subheader}}</h6>
+      <p>{{message}}</p>
+    </div>
+    <div class="text-center mt-1">
+      <button type="button" class="btn btn-success ml-1" (click)="closeModal()">Ok</button>
+    </div>
+  </div>
+</ng-template>

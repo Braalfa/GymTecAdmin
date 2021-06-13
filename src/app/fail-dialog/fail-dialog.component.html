@@ -1,0 +1,16 @@
+<ng-template #failDialog>
+  <div class="modal-body">
+    <div class="border-bottom text-center pb-1">
+      <button type="button" class="float-right close pull-right" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5 class="text-danger">{{header}}</h5>
+    </div>
+    <div class="ml-3 mr-3 mt-2 text-center">
+      <p>{{message}}</p>
+    </div>
+    <div class="text-center mt-1">
+      <button type="button" class="btn btn-danger ml-1" (click)="closeModal()">Ok</button>
+    </div>
+  </div>
+</ng-template>

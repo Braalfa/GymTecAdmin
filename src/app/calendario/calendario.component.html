@@ -1,0 +1,213 @@
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Previous
+      </div>
+      <div
+        class="btn btn-outline-secondary"
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+      >
+        Today
+      </div>
+      <div
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Next
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Month)"
+        [class.active]="view === CalendarView.Month"
+      >
+        Month
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Week)"
+        [class.active]="view === CalendarView.Week"
+      >
+        Week
+      </div>
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Day)"
+        [class.active]="view === CalendarView.Day"
+      >
+        Day
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="CalendarView.Day"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-day-view>
+</div>
+
+<!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+
+<br /><br /><br />
+<div class="row">
+  <div class="col-lg-2 col-md-6">
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <div class="container-fluid inputBox border">
+      <div class="row" *ngIf="!currentCopy.FechaInicioCopiar && !currentCopy.FechaFinalCopiar">
+        <h3>Seleccione unos días para copiar sus actividades<div class="clearfix"></div></h3>
+      </div>
+      <div class="row" *ngIf="currentCopy.FechaInicioCopiar && currentCopy.FechaFinalCopiar">
+        <h3>Seleccione unos días donde copiar las actividades<div class="clearfix"></div></h3>
+      </div>
+
+      <div class="row" *ngIf="!currentCopy.FechaInicioCopiar || !currentCopy.FechaFinalCopiar || !currentCopy.FechaInicioPegar || !currentCopy.FechaFinalPegar">
+        <form class="form-inline">
+          <div class="form-group hidden">
+            <div class="input-group">
+              <input name="datepicker"
+                    class="form-control"
+                    ngbDatepicker
+                    #datepicker="ngbDatepicker"
+                    [autoClose]="'outside'"
+                    (dateSelect)="onDateSelection($event)"
+                    [displayMonths]="2"
+                    [dayTemplate]="t"
+                    outsideDays="hidden"
+                    [startDate]="fromDate!"
+                    tabindex="-1">
+              <ng-template #t let-date let-focused="focused">
+                <span class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null">
+                  {{ date.day }}
+                </span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input #dpFromDate
+                    class="form-control" placeholder="yyyy-mm-dd"
+                    name="dpFromDate"
+                    [value]="formatter.format(fromDate)"
+                    (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ml-2">
+            <div class="input-group">
+              <input #dpToDate
+                    class="form-control" placeholder="yyyy-mm-dd"
+                    name="dpToDate"
+                    [value]="formatter.format(toDate)"
+                    (input)="toDate = validateInput(toDate, dpToDate.value)">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+
+    <div class="row" *ngIf="currentCopy.FechaInicioCopiar && currentCopy.FechaFinalCopiar">
+      <pre>Copiar desde: {{dateToString(currentCopy.FechaInicioCopiar)}}</pre>
+      <pre>Copiar hasta: {{dateToString(currentCopy.FechaFinalCopiar)}}</pre>
+      <pre>Copiar un periodo de: {{calculateFirstDiff(currentCopy.FechaInicioCopiar, currentCopy.FechaFinalCopiar)}} días</pre>
+    </div>
+    <div class="row" *ngIf="currentCopy.FechaInicioCopiar && currentCopy.FechaFinalCopiar && currentCopy.FechaInicioPegar && currentCopy.FechaFinalPegar">
+      <pre>Pegar desde: {{dateToString(currentCopy.FechaInicioPegar)}}</pre>
+      <pre>Pegar hasta: {{dateToString(currentCopy.FechaFinalPegar)}}</pre>
+      <pre>Pegar en un periodo de: {{calculateSecondDiff(currentCopy.FechaInicioPegar, currentCopy.FechaFinalPegar)}} días</pre>
+    </div>
+    <div class="row" *ngIf="currentCopy.FechaInicioCopiar && currentCopy.FechaFinalCopiar && currentCopy.FechaInicioPegar && currentCopy.FechaFinalPegar">
+      <button class="btn btn-primary float-right" (click)="copyActivities()">Copiar</button>
+    </div>
+    <div class="row" >
+      <button class="btn btn-primary float-right" (click)="cancel()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="col-lg-4 col-md-12">
+      <div>
+          <h3 class="text-secondary text-center mb-2"> Copiar solo las de actividades de una sucursal</h3>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action">
+          <div class="radio" *ngFor="let sucursal of sucursales">
+              <label>
+                      <input type="radio" name="sucursal" [value]="sucursal.Nombre" [(ngModel)]="sucursalPorCopiar">
+                        {{sucursal.Nombre}}
+              </label>
+          </div>
+          <div class="radio">
+            <label>
+                    <input type="radio" name="none" [value]="null" [(ngModel)]="sucursalPorCopiar">
+                      -
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+</div>
+
+<app-fail-dialog [header]="errorMsgHeader"
+                   [message]="errorMsg"></app-fail-dialog>
+
+
+

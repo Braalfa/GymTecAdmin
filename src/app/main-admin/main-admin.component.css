@@ -1,0 +1,19 @@
+.myTabs{
+    background: black;
+}
+
+.myTabs li a{
+    background-color: black;
+    color:#FFF;
+}
+
+* {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+h4{
+  font-family: "Playfair Display";
+}

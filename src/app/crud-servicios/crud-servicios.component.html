@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row justify-content-evenly">
+      <div class="col-lg-8 col-md-12">
+        <div class="container box border">
+          <div>
+            <h3 class="text-secondary"> Servicios </h3>
+          </div>
+  
+          <div class="orders border-top pt-2">
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action"
+                  *ngFor="let servicio of servicios; index as i"
+                  (click)="toEdit(servicio)">
+                <div class="">
+                  <div class="row justify-content-evenly order shadow p-3 mb-5 bg-body rounded">
+                    <div class="col-md-4">
+                      <h1><span class="badge badge-pill badge-success">{{i+1}}</span></h1>
+                    </div>
+                    <div class="col-8">
+                      <div class="row justify-content-evenly">
+                        <div class="col-6">
+                          <p class="col-form-label font-weight-bold text-secondary">Identificador:</p>
+                        </div>
+                        <div class="col-6">
+                          <p class="col-form-label text-muted text-secondary">{{servicio.Identificador}} </p>
+                        </div>
+                      </div>
+                      <div class="row justify-content-evenly">
+                        <div class="col-6">
+                          <p class="col-form-label font-weight-bold text-secondary">Descripción:</p>
+                        </div>
+                        <div class="col-6">
+                          <p class="col-form-label text-muted text-secondary">{{servicio.Descripcion}} </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="container-fluid inputBox border">
+          <form #servicioForm class="center-form">
+            <div>
+              <h3 class="text-secondary text-center mb-2"> Agregar o Editar un Servicio </h3>
+            </div>
+            <div class="form-group">
+              <input required pattern='[0-9]*' type="text" min="0" name="id" [(ngModel)]="selectedservicio.Identificador" placeholder="Identificador"
+                     class="form-control"  #id="ngModel" [class.is-invalid]="id.invalid && (id.dirty || id.touched)">
+            </div>
+            <div class="form-group ">
+                <input required type="text" min="0" name="descripcion" [(ngModel)]="selectedservicio.Descripcion"
+                        placeholder="Descripción"  #descripcion="ngModel" [class.is-invalid]="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                        class="form-control">
+            </div>    
+  
+          </form>
+          <div class="row">
+            <div class="mt-4 text-center col-12">
+              <button [disabled]="!servicioForm.checkValidity()"
+                      (click)="addOrEdit(servicioForm)" type="button"
+                      class="btn btn-dark">
+                Confirmar
+              </button>
+            </div>
+            <div class="col-12 mt-2 text-center">
+              <button type="button" *ngIf="this.editing" class="btn btn-danger"
+                      (click)="delete(servicioForm)">
+                Eliminar
+              </button>
+            </div>
+            <div class="col-12 mt-2 mb-2 text-center">
+              <button type="button" *ngIf="this.editing" class="btn btn-light"
+                      (click)="cancel(servicioForm)">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-fail-dialog [header]="errorMsgHeader"
+                     [message]="errorMsg"></app-fail-dialog>
+  
+  </div>

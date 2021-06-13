@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+.img-thumbnail{
+    width: 150px;
+    height: 150px;
+  }
+  
+  .order{
+    width: 90%;
+    height: fit-content;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .orders{
+    overflow: auto;
+    padding: 2%;
+    height: 90%;
+    width: auto;
+    overflow-x: hidden;
+  }
+  
+  * {font-family: "Times New Roman", Georgia, Serif;}
+  h1, h2, h3 {
+    font-family: "Playfair Display";
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  h4{
+    font-family: "Playfair Display";
+  }
+  .box{
+    height: 85vh;
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+  
+  .inputBox{
+    height: auto;
+    align-self:center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

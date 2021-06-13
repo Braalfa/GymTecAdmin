@@ -1,0 +1,58 @@
+#general-block{
+  width: 100%;
+  padding-top: 27px;
+  margin: auto;
+}
+
+.center-form{
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+/*.bg-image{*/
+/*  background-image: url('src/assets/iot.jpg');*/
+/*  background-size: auto;*/
+/*  height: 100%;*/
+/*  background-repeat: repeat;*/
+/*}*/
+
+@media (max-width: 576px) {
+  #general-block{
+    width: 95%;
+  }
+}
+
+@media (min-width: 576px) {
+  #general-block{
+    width: 93%;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #general-block{
+    width: 90%;
+  }
+}
+
+@media (min-width: 992px) {
+  #general-block{
+    width: 80%;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  #general-block{
+    width: 80%;
+  }
+}
+
+@media (min-width: 1400px) {
+  #general-block{
+    width: 80%;
+  }
+}
+

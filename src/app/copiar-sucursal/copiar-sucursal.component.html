@@ -1,0 +1,94 @@
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-2 col-md-6">
+    </div>
+    <div class="col-lg-4 col-md-12">
+        <div class="container-fluid inputBox border">
+            <form #servicioForm>
+                <div>
+                    <h3 class="text-secondary text-center mb-2"> Nueva sucursal</h3>
+                </div>
+                <div class="form-group">
+                    <input required type="text" min="0" name="id" [(ngModel)]="newSucursal.Nombre" placeholder="Nombre"
+                        class="form-control" #name="ngModel"
+                        [class.is-invalid]="name.invalid && (provincia.dirty || provincia.touched)">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="distrito" [(ngModel)]="newSucursal.Distrito"
+                        placeholder="Distrito" #distrito="ngModel"
+                        [class.is-invalid]="distrito.invalid && (distrito.dirty || distrito.touched)" class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="Canton" [(ngModel)]="newSucursal.Canton"
+                        placeholder="Canton" #canton="ngModel"
+                        [class.is-invalid]="canton.invalid && (canton.dirty || canton.touched)" class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="Provincia" [(ngModel)]="newSucursal.Provincia"
+                        placeholder="Provincia" #provincia="ngModel"
+                        [class.is-invalid]="provincia.invalid && (provincia.dirty || provincia.touched)"
+                        class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="fechaApertura" [(ngModel)]="newSucursal.FechaApertura"
+                        placeholder="FechaApertura" #fechaApertura="ngModel"
+                        [class.is-invalid]="fechaApertura.invalid && (fechaApertura.dirty || fechaApertura.touched)"
+                        disabled class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="Horario" [(ngModel)]="newSucursal.Horario"
+                        placeholder="Horario" #horario="ngModel"
+                        [class.is-invalid]="horario.invalid && (horario.dirty || horario.touched)" class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input required type="text" min="0" name="Capacidad" [(ngModel)]="newSucursal.Capacidad"
+                        placeholder="Capacidad" #capacidad="ngModel"
+                        [class.is-invalid]="capacidad.invalid && (capacidad.dirty || capacidad.touched)"
+                        class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input type="text" min="0" name="CedulaAdministrador" [(ngModel)]="newSucursal.CedulaAdministrador"
+                        placeholder="Cedula de Administrador" #cedulaAdministrador="ngModel"
+                        [class.is-invalid]="cedulaAdministrador.invalid && (cedulaAdministrador.dirty || cedulaAdministrador.touched)"
+                        class="form-control">
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-12 mt-2 mb-2 text-center">
+                    <button type="button" class="btn btn-light" (click)="cancel(servicioForm)">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-12">
+        <div class="container-fluid inputBox border">
+            <div>
+                <h3 class="text-secondary text-center mb-2"> Copiar desde</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action">
+                    <div class="radio" *ngFor="let sucursal of sucursales">
+                        <label>
+                               <input type="radio" name="sucursal" [value]="sucursal.Nombre" [(ngModel)]="sucursalPorCopiar">
+                                 {{sucursal.Nombre}}
+                        </label>
+                  </div>
+                </li>
+            </ul>
+
+            <div class="row">                
+                <div class="col-12 mt-2 mb-2 text-center">
+                    <button [disabled]="!servicioForm.checkValidity() || !sucursalPorCopiar" class="btn btn-primary float-right" (click)="copy()">
+                        Copiar la sucursal {{sucursalPorCopiar}} en la nueva sucursal {{newSucursal.Nombre}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,108 @@
+.img-thumbnail{
+  width: 150px;
+  height: 150px;
+}
+
+.order{
+  width: 90%;
+  height: fit-content;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.orders{
+  overflow: auto;
+  padding: 2%;
+  height: 90%;
+  width: auto;
+  overflow-x: hidden;
+}
+
+* {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3 {
+  font-family: "Playfair Display";
+  margin-top: 10px;
+  font-weight: bold;
+}
+h4{
+  font-family: "Playfair Display";
+}
+.box{
+  height: 85vh;
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.inputBox{
+  height: auto;
+  align-self:center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*
+
+.btn-dark{
+  align-self: center;
+  margin-left: 33%;
+}
+
+.btn-danger{
+  align-self: center;
+  margin-top: 15px;
+  margin-left: 35%;
+}
+
+.btn-light{
+  align-self: center;
+  margin-top: 15px;
+  margin-left: 35%;
+}
+*/
+
+
+.myImg {
+  max-width: 285px;
+  max-height: 177px;
+}
+
+@media (max-width: 576px) {
+  #general-block{
+    width: 95%;
+  }
+}
+
+@media (min-width: 576px) {
+  #general-block{
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  #general-block{
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  #general-block{
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #general-block{
+    width: 40%;
+  }
+}
+
+@media (min-width: 1400px) {
+  #general-block{
+    width: 35%;
+  }
+}

@@ -1,0 +1,44 @@
+<div class="bg-image dx-viewport">
+  <div id="super">
+    <div id="general-block" class="container-fluid">
+      <p class="text-center fw-bold fs-1" style="font-size: xx-large">Planilla</p>
+      <div class="row">
+        <div id="pivotgrid-demo" class="col-12">
+          <dx-pivot-grid class="filter" id="pivotgrid"
+                         [allowSortingBySummary]="false"
+                         [allowFiltering]="false"
+                         [allowExpandAll]="false"
+                         [showBorders]="true"
+                         [showColumnGrandTotals]="false"
+                         [showRowGrandTotals]="false"
+                         [showRowTotals]="false"
+                         [showColumnTotals]="false"
+                         (onCellPrepared)="onCellPrepared($event)"
+                         (onCellClick)="onCellClick($event)"
+                         [dataSource]="dataSource">
+            <dxo-scrolling mode="virtual"></dxo-scrolling>
+            <dxo-field-panel
+              [showDataFields]="false"
+              [showRowFields]="true"
+              [showColumnFields]="true"
+              [showFilterFields]="false"
+              [allowFieldDragging]="false"
+              [visible]="true">
+            </dxo-field-panel>
+            <dxo-field-chooser [enabled]="false"></dxo-field-chooser>
+          </dx-pivot-grid>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 text-center" style="width: 100%">
+      <dx-button id="exportButton"
+                 icon="print"
+                 text="Imprimir"
+                 (onClick)="exportAsPDF()">
+      </dx-button>
+    </div>
+  </div>
+</div>
+
+<app-fail-dialog [header]="'Error'"
+                 [message]="errorMsg"></app-fail-dialog>

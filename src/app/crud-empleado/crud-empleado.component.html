@@ -1,0 +1,299 @@
+<div class="container-fluid">
+  <div class="row justify-content-evenly">
+    <div class="col-lg-8 col-md-12">
+      <div class="container box border">
+        <div>
+          <h3 class="text-secondary"> Empleados </h3>
+        </div>
+
+        <div class="orders border-top pt-2">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action"
+                *ngFor="let empleado of empleados; index as i"
+                (click)="toEditType(empleado)">
+              <div class="">
+                <div class="row justify-content-evenly order shadow p-3 mb-5 bg-body rounded">
+                  <div class="col-md-4">
+                    <h1><span class="badge badge-pill badge-success">{{i+1}}</span></h1>
+                  </div>
+                  <div class="col-8">
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Cédula:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.NumeroCedula}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">1er Nombre:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.PrimerNombre}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">2do Nombre:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.SegundoNombre}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">1er Apellido:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.PrimerApellido}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">2do Apellido:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.SegundoApellido}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Provincia:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Provincia}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Cantón:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Canton}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Distrito:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Distrito}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Correo:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Correo}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Contraseña:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Contrasena}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Id de Puesto:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.IdPuesto}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Tipo de Puesto:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.PuestoDescripcion}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Sucursal:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.NombreSucursal}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Id Tipo de planilla:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.IdTipoPlanilla}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Tipo de planilla:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.TipoPlanillaDescripcion}} </p>
+                      </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                      <div class="col-6">
+                        <p class="col-form-label font-weight-bold text-secondary">Salario:</p>
+                      </div>
+                      <div class="col-6">
+                        <p class="col-form-label text-muted text-secondary">{{empleado.Salario}} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div class="container-fluid inputBox border">
+        <form #employeeForm class="center-form">
+          <div>
+            <h3 class="text-secondary text-center mb-2"> Agregar o Editar un Empleado </h3>
+          </div>
+          <div class="form-group">
+            <input required pattern='[0-9]*' [disabled]="editing" type="text" min="0" name="cedula" [(ngModel)]="selectedEmpleado.NumeroCedula" placeholder="Cédula"
+                   class="form-control"  #cedula="ngModel" [class.is-invalid]="cedula.invalid && (cedula.dirty || cedula.touched)">
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12 pr-md-1">
+              <div class="form-group ">
+                <input required type="text" min="0" name="primernombre" [(ngModel)]="selectedEmpleado.PrimerNombre"
+                       placeholder="1er Nombre"  #pnombre="ngModel" [class.is-invalid]="pnombre.invalid && (pnombre.dirty || pnombre.touched)"
+                       class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pl-md-1">
+              <div class="form-group ">
+                <input type="text" min="0" name="segundonombre" [(ngModel)]="selectedEmpleado.SegundoNombre"
+                       placeholder="2do Nombre" #snombre="ngModel" [class.is-invalid]="snombre.invalid && (snombre.dirty || snombre.touched)"
+                       class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12 pr-md-1">
+              <div class="form-group ">
+                <input required type="text" min="0" name="primerapellido" [(ngModel)]="selectedEmpleado.PrimerApellido"
+                       placeholder="1er Apellido" #papellido="ngModel" [class.is-invalid]="papellido.invalid && (papellido.dirty || papellido.touched)"
+                       class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pl-md-1">
+              <div class="form-group ">
+                <input type="text" min="0" name="segundoapellido" [(ngModel)]="selectedEmpleado.SegundoApellido"
+                       placeholder="2do Apellido" #sapellido="ngModel" [class.is-invalid]="sapellido.invalid && (sapellido.dirty || sapellido.touched)"
+                       class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <input required type="text" min="0" name="provincia" [(ngModel)]="selectedEmpleado.Provincia"
+                   placeholder="Provincia" #provincia="ngModel" [class.is-invalid]="provincia.invalid && (provincia.dirty || provincia.touched)"
+                   class="form-control">
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12 pr-md-1">
+              <div class="form-group ">
+                <input required type="text" min="0" name="canton" [(ngModel)]="selectedEmpleado.Canton" placeholder="Cantón"
+                       class="form-control" #canton="ngModel" [class.is-invalid]="canton.invalid && (canton.dirty || canton.touched)">
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pl-md-1">
+              <div class="form-group ">
+                <input required type="text" min="0" name="distrito" [(ngModel)]="selectedEmpleado.Distrito"
+                       placeholder="Distrito"
+                       class="form-control" #distrito="ngModel" [class.is-invalid]="distrito.invalid && (distrito.dirty || distrito.touched)">
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <input required type="text" min="0" name="correo" [(ngModel)]="selectedEmpleado.Correo" placeholder="Correo"
+                   class="form-control"  #correo="ngModel" [class.is-invalid]="correo.invalid && (correo.dirty || correo.touched)">
+          </div>
+          <div class="form-group ">
+            <input required type="text" min="0" name="contrasena" [(ngModel)]="selectedEmpleado.Contrasena"
+                   placeholder="Contraseña"  #contrasena="ngModel" [class.is-invalid]="contrasena.invalid && (contrasena.dirty || contrasena.touched)"
+                   class="form-control">
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12 pr-md-1">
+              <div class="form-group">
+                <select required id="puesto" name="puesto" class="form-control"
+                        [(ngModel)]="selectedEmpleado.IdPuesto" #puesto="ngModel" [class.is-invalid]="puesto.invalid && (puesto.dirty || puesto.touched)">
+                  <option value="undefined" selected hidden>Puesto</option>
+                  <option *ngFor="let puesto of puestos" [value]="puesto.Id">
+                    {{puesto.Id + ' - ' + puesto.Descripcion}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pl-md-1">
+              <div class="form-group">
+                <select id="sucursal" name="sucursal" class="form-control"
+                        [(ngModel)]="selectedEmpleado.NombreSucursal"  #sucursal="ngModel" [class.is-invalid]="sucursal.invalid && (sucursal.dirty || sucursal.touched)">
+                  <option value="undefined" selected hidden>Sucursal</option>
+                  <option *ngFor="let sucursal of sucursales" [value]="sucursal.Nombre">
+                    {{sucursal.Nombre}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12 pr-md-1">
+              <div class="form-group">
+                <select required id="planilla" name="planilla" class="form-control"
+                        [(ngModel)]="selectedEmpleado.IdTipoPlanilla"  #tipo_planilla="ngModel" [class.is-invalid]="tipo_planilla.invalid && (tipo_planilla.dirty || tipo_planilla.touched)">
+                  <option value="undefined" selected hidden>Tipo Planilla</option>
+                  <option *ngFor="let tipo of tiposPlanilla" [value]="tipo.Id">
+                    {{tipo.Id + ' - ' + tipo.Descripcion}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-12 pl-md-1">
+              <div class="form-group">
+                <input required type="text" pattern='[0-9]*'  min="0" name="salario" [(ngModel)]="selectedEmpleado.Salario" placeholder="Salario"
+                       class="form-control" #Salario="ngModel" [class.is-invalid]="Salario.invalid && (Salario.dirty || Salario.touched)">
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <div class="row">
+          <div class="mt-4 text-center col-12">
+            <button [disabled]="!employeeForm.checkValidity() || puesto.invalid|| tipo_planilla.invalid "
+                    (click)="addOrEditType(employeeForm)" type="button"
+                    class="btn btn-dark">
+              Confirmar
+            </button>
+          </div>
+          <div class="col-12 mt-2 text-center">
+            <button type="button" *ngIf="this.editing" class="btn btn-danger"
+                    (click)="deleteType(employeeForm)">
+              Eliminar
+            </button>
+          </div>
+          <div class="col-12 mt-2 mb-2 text-center">
+            <button type="button" *ngIf="this.editing" class="btn btn-light"
+                    (click)="cancel(employeeForm)">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-fail-dialog [header]="errorMsgHeader"
+                   [message]="errorMsg"></app-fail-dialog>
+
+</div>
